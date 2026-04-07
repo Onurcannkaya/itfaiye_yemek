@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --color-bg: #060b18;
+  --color-card: #0f1629;
+  --color-card-hover: #161f38;
+  --color-surface: #1a2340;
+  --color-border: #1e2d4a;
+  --color-fire: #dc2626;
+  --color-fire-glow: #ef4444;
+  --color-fire-dark: #991b1b;
+  --color-paid: #10b981;
+  --color-paid-dark: #065f46;
+  --color-gold: #f59e0b;
+  --color-text-main: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-card-unpaid: rgba(153, 27, 27, 0.3);
+  --color-card-paid: rgba(6, 95, 70, 0.4);
+  --color-border-unpaid: rgba(153, 27, 27, 0.4);
+  --color-border-paid: rgba(6, 95, 70, 0.4);
+}
+
+:root.light {
+  --color-bg: #f8fafc;
+  --color-card: #ffffff;
+  --color-card-hover: #f1f5f9;
+  --color-surface: #e2e8f0;
+  --color-border: #cbd5e1;
+  --color-fire: #ef4444;
+  --color-fire-glow: #f87171;
+  --color-fire-dark: #dc2626;
+  --color-paid: #10b981;
+  --color-paid-dark: #059669;
+  --color-gold: #d97706;
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-card-unpaid: rgba(254, 226, 226, 0.5);
+  --color-card-paid: rgba(209, 250, 229, 0.5);
+  --color-border-unpaid: rgba(248, 113, 113, 0.5);
+  --color-border-paid: rgba(52, 211, 153, 0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-family-sans);
+  background: var(--color-bg);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100dvh;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 3px; }
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.7);
+  cursor: pointer;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(220, 38, 38, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.6); }
+}
+
+.glow-fire { animation: pulse-glow 2.5s ease-in-out infinite; }
